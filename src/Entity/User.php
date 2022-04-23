@@ -234,14 +234,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, portfolio>
+     * @return Collection<int, Portfolio>
      */
     public function getPortfolios(): Collection
     {
         return $this->portfolios;
     }
 
-    public function addPortfolio(portfolio $portfolio): self
+    public function addPortfolio(Portfolio $portfolio): self
     {
         if (!$this->portfolios->contains($portfolio)) {
             $this->portfolios[] = $portfolio;
@@ -251,7 +251,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removePortfolio(portfolio $portfolio): self
+    public function removePortfolio(Portfolio $portfolio): self
     {
         if ($this->portfolios->removeElement($portfolio)) {
             // set the owning side to null (unless already changed)
