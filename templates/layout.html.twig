@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+    {% block content %}
+
+        {# flashes #}
+        {% block flashes %}
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    {# TODO: Style flash messages #}
+                {% endfor %}
+            {% endfor %}
+        {% endblock %}
+        {# end flashes #}
+        
+    {% endblock %}
+
+{% endblock %}
