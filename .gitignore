@@ -20,6 +20,11 @@ yarn-error.log
 /public/media/cache/
 ###< liip/imagine-bundle ###
 
+###> public/uploads/placeholder ###
+/public/uploads/images/*
+!/public/uploads/images/placeholder_img_landscape.png
+###> public/uploads/placeholder ###
+
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
