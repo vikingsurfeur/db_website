@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\PhotographRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PhotographRepository::class)]
+#[Vich\Uploadable]
 class Photograph
 {
     #[ORM\Id]
@@ -33,6 +36,9 @@ class Photograph
 
     #[ORM\Column(type: 'string', length: 255)]
     private $file;
+
+    #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'file')]
+    private ?File $imageFile = null;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'photographs')]
     #[ORM\JoinColumn(nullable: false)]
@@ -129,6 +135,23 @@ class Photograph
         $this->file = $file;
 
         return $this;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getPhotographer(): ?User
