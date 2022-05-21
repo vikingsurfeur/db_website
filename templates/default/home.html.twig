@@ -2,12 +2,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_style_tags('homepage') }}
+    {{ encore_entry_link_tags('homepage') }}
 {% endblock %}
 
 {% block javascript %}
     {{ parent() }}
-    {{ encore_entry_link_tags('homepage') }}
+    {{ encore_entry_script_tags('homepage') }}
 {% endblock %}
 
 {% block content %}

@@ -18,9 +18,7 @@ $layout-values:
 // Base Layout classes
 .container {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-inline: auto;
     box-sizing: border-box;
 }
 

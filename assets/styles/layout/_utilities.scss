@@ -1,0 +1,112 @@
+/* Layout utilities */
+
+// Max width classes
+$max-width: (
+    '100': 100%,
+    '75': 75%,
+    '50': 50%,
+    '25': 25%,
+);
+
+@each $mw, $val in $max-width {
+    .mw-#{$mw} {
+        max-width: $val;
+    }
+};
+
+// Min width classes
+@each $mw, $val in $max-width {
+    .mw-#{$mw} {
+        min-width: $val;
+    }
+};
+
+// Margin classes
+$margin: (
+    '0': 0,
+    '1': 1rem,
+    '2': 2rem,
+    '3': 3rem,
+    '4': 4rem,
+    '5': 5rem,
+    '6': 6rem,
+    '7': 7rem,
+    '8': 8rem,
+    '9': 9rem,
+    '10': 10rem,
+);
+
+@each $mg, $val in $margin {
+    .m-#{$mg} {
+        margin: $val;
+    }
+};
+
+@each $mg, $val in $margin {
+    .mt-#{$mg} {
+        margin-top: $val;
+    }
+};
+
+@each $mg, $val in $margin {
+    .mr-#{$mg} {
+        margin-right: $val;
+    }
+};
+
+@each $mg, $val in $margin {
+    .mb-#{$mg} {
+        margin-bottom: $val;
+    }
+};
+
+@each $mg, $val in $margin {
+    .ml-#{$mg} {
+        margin-left: $val;
+    }
+};
+
+// Paddding classes
+$padding: (
+    '0': 0,
+    '1': 1rem,
+    '2': 2rem,
+    '3': 3rem,
+    '4': 4rem,
+    '5': 5rem,
+    '6': 6rem,
+    '7': 7rem,
+    '8': 8rem,
+    '9': 9rem,
+    '10': 10rem,
+);
+
+@each $pg, $val in $padding {
+    .p-#{$pg} {
+        padding: $val;
+    }
+};
+
+@each $pg, $val in $padding {
+    .pt-#{$pg} {
+        padding-top: $val;
+    }
+};
+
+@each $pg, $val in $padding {
+    .pr-#{$pg} {
+        padding-right: $val;
+    }
+};
+
+@each $pg, $val in $padding {
+    .pb-#{$pg} {
+        padding-bottom: $val;
+    }
+};
+
+@each $pg, $val in $padding {
+    .pl-#{$pg} {
+        padding-left: $val;
+    }
+};
