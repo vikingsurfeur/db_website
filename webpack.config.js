@@ -21,6 +21,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry("app", "./assets/app.ts")
+    .addEntry("homepage", "./assets/scripts/homepage.ts")
 
     // enables TypeScript support
     .enableTypeScriptLoader()

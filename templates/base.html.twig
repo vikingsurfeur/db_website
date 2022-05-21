@@ -2,7 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% block title %}David Bouscarle - Photography{% endblock %}</title>
+        <meta 
+            name="description" 
+            content="Come and discover the photographic work of David Bouscarle, photographer in the south of the France and explorer of new horizons. Originally from Vaucluse, near Mont Ventoux, he tries to grasp the simple and beautiful things that nature offers us." 
+        />
+        <!-- TODO: Add favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+        <link rel="manifest" href="./site.webmanifest" />
+        <!-- TODO: Add network context -->
+        <meta property="og:title" content="" />
+        <meta property="og:image" content="https://" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="titre affiché" />
+        <meta name="twitter:image" content="https://" />
+        <meta name="twitter:description" content="" />
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
