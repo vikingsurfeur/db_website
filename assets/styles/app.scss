@@ -9,8 +9,11 @@
     './base/reset',
     './base/typography';
 
+@import './animations';
+
 @import 
-    './components/buttons';
+    './components/buttons',
+    './components/burger';
 
 @import 
     './layout/utilities/main',
@@ -20,5 +23,3 @@
 @import
     './themes/colors',
     './themes/typography';
-
-@import './animations';

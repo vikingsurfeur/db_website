@@ -1,0 +1,26 @@
+/* Animation */
+$burger__hover__line--1: burger__hover__line--1 250ms ease forwards;
+
+@keyframes burger__hover__line--1 {
+    0% {
+        top: 0;
+        transform: translateY(0);
+    }
+    100% {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+$burger__hover__line--2: burger__hover__line--2 250ms ease forwards;
+
+@keyframes burger__hover__line--2 {
+    0% {
+        bottom: 0;
+        transform: translateY(0);
+    }
+    100% {
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+}
