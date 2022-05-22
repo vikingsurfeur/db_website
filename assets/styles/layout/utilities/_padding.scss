@@ -19,26 +19,38 @@ $padding: (
     }
 };
 
-@each $pg, $val in $padding {
-    .pt-#{$pg} {
+@each $pt, $val in $padding {
+    .pt-#{$pt} {
         padding-top: $val;
     }
 };
 
-@each $pg, $val in $padding {
-    .pr-#{$pg} {
+@each $pr, $val in $padding {
+    .pr-#{$pr} {
         padding-right: $val;
     }
 };
 
-@each $pg, $val in $padding {
-    .pb-#{$pg} {
+@each $pb, $val in $padding {
+    .pb-#{$pb} {
         padding-bottom: $val;
     }
 };
 
-@each $pg, $val in $padding {
-    .pl-#{$pg} {
+@each $pl, $val in $padding {
+    .pl-#{$pl} {
         padding-left: $val;
+    }
+};
+
+@each $px, $val in $padding {
+    .px-#{$px} {
+        padding: 0 $val;
+    }
+};
+
+@each $py, $val in $padding {
+    .py-#{$py} {
+        padding: $val 0;
     }
 };

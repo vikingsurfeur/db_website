@@ -1,0 +1,32 @@
+.form {
+    margin-top: 4rem;
+    min-width: 250px;
+
+    &__group {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__input {
+        margin: 0 0 3rem 3rem;
+        min-width: 200px;
+        font-family: 'jost', sans-serif;
+        font-size: 1.6rem;
+        border: none;
+        border-bottom: 1px solid $black;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button__wrapper {
+        display: flex;
+        justify-content: center;
+    }
+    
+    &__button {
+        margin-top: 2rem;
+    }
+}

@@ -1,28 +1,66 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello SecurityController!
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('login') }}
 {% endblock %}
 
+{% block javascript %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('login') }}
+{% endblock %}
+
+{% block title %}{{ title }}{% endblock %}
+
 {% block content %}
-	<h1>Login</h1>
-	<form method="post" accept-charset="UTF-8">
-		{# EMAIL #}
-		<div>
-			<label for="input_email">Username</label>
-			<input type="email" id="input_email" name="_email" value="{{ last_username }}" required autofocus/>
-		</div>
-		{# PASSWORD #}
-		<div>
-			<label for="input_password">Password</label>
-			<input type="password" id="input_password" name="_password" required/>
-		</div>
-		{# SUBMIT #}
-		<button type="submit">Login</button>
-		{# ERRORS #}
-		{% if error %}
-			<div class="alert alert-danger alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
-		{# CSRF #}
-		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-	</form>
+<div class="login__page">
+	<div class="login__form__wrapper mnw-40">
+		<h1>Login</h1>
+		<form class="form" method="post" accept-charset="UTF-8">
+			{# email #}
+			<div class="form__group">
+				<label for="input_email">Email</label>
+				<input 
+					class="form__input" 
+					type="email" 
+					id="input_email" 
+					name="_email"
+					placeholder="user@example.com"
+					value="{{ last_email }}" 
+					required 
+					autofocus
+				/>
+			</div>
+			{# password #}
+			<div class="form__group">
+				<label for="input_password">Password</label>
+				<input 
+					class="form__input" 
+					type="password" 
+					id="input_password"
+					name="_password" 
+					placeholder="password"
+					required
+				/>
+			</div>
+			{# submit #}
+			<div class="form__button__wrapper">
+				<button class="form__button btn" type="submit">Login</button>
+			</div>
+			{# errors #}
+			{% if error %}
+				<div class="container mnw-100 p-5">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+			{# CSRF #}
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+		</form>
+	</div>
+	<div class="login__image__wrapper mnw-60">
+		<img 
+			class="login__image"
+			src="{{ asset('build/images/placeholder/placeholder_img_landscape.jpg') }}" 
+			alt="David Bouscarle photography - Crête de la Taillante - France"
+		>
+	<div>
+</div>
 {% endblock %}

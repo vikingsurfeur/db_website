@@ -19,26 +19,38 @@ $margin: (
     }
 };
 
-@each $mg, $val in $margin {
-    .mt-#{$mg} {
+@each $mt, $val in $margin {
+    .mt-#{$mt} {
         margin-top: $val;
     }
 };
 
-@each $mg, $val in $margin {
-    .mr-#{$mg} {
+@each $mr, $val in $margin {
+    .mr-#{$mr} {
         margin-right: $val;
     }
 };
 
-@each $mg, $val in $margin {
-    .mb-#{$mg} {
+@each $mb, $val in $margin {
+    .mb-#{$mb} {
         margin-bottom: $val;
     }
 };
 
-@each $mg, $val in $margin {
-    .ml-#{$mg} {
+@each $ml, $val in $margin {
+    .ml-#{$ml} {
         margin-left: $val;
+    }
+};
+
+@each $mx, $val in $margin {
+    .mx-#{$mx} {
+        margin: 0 $val;
+    }
+};
+
+@each $my, $val in $margin {
+    .my-#{$my} {
+        margin: $val 0;
     }
 };

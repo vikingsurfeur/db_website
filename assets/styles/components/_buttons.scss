@@ -1,0 +1,40 @@
+.btn {
+    position: relative;
+    padding: 1rem 2rem;
+    border: 1px solid $black;
+    background-color: transparent;
+    overflow: hidden;
+    transition: 
+        color 250ms ease, 
+        background-color 250ms ease;
+        
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $black;
+        border: 1px solid $black;
+        opacity: 0;
+        transform: translate3D(-100%, 0, 0);
+        transition: 
+            opacity 250ms ease,
+            transform 250ms ease;
+    }
+
+    &:hover {
+        color: $white;
+    }
+
+    &:hover::before {
+        transform: translate3D(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.btn--lg {
+    padding: 1.5rem 3rem;
+}

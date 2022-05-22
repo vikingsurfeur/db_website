@@ -1,4 +1,8 @@
 .header {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+
     & > div {
         align-items: center;
     }

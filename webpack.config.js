@@ -22,6 +22,7 @@ Encore
      */
     .addEntry("app", "./assets/app.ts")
     .addEntry("home", "./assets/scripts/home.ts")
+    .addEntry("login", "./assets/scripts/login.ts")
 
     // enables TypeScript support
     .enableTypeScriptLoader()
