@@ -3,10 +3,16 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-    <header class="container px-4 header">
+    <header class="container px-5 header">
         <div class="row justify-space-between mnw-100">
             <div class="col-xs-6">
-                <p>{{ title }}</p>
+            <!-- TODO: Replace the logo -->
+            <a href="{{ path('app_home') }}">    
+                <img 
+			        src="{{ asset('build/images/icons/david_bouscarle_logo.png') | imagine_filter('header_logo')}}"
+                    alt="David Bouscarle logo"
+                >
+            </a>
             </div>
             <a class="col-xs-6 burger">
                 <span class="burger__line burger__line--top"></span>
