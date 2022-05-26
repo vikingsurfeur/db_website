@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { isMobile } from "./utils/isMobile";
 
 const burger = document.querySelector(".burger");
 const burgerLineOne = document.querySelector(".burger__line--top");
@@ -31,7 +32,7 @@ menuTimeline.reverse();
 
 // Handle functions
 const handleBurgerMouseEntered = () => {
-    if (window.innerWidth > 768) {
+    if (isMobile()) {
         burgerLineOne.classList.add("burger__line--top--hover");
         burgerLineTwo.classList.add("burger__line--bottom--hover");
 
@@ -45,7 +46,7 @@ const handleBurgerMouseEntered = () => {
 };
 
 const handleBurgerMouseLeaved = () => {
-    if (window.innerWidth > 768) {
+    if (isMobile()) {
         burgerLineOne.classList.remove("burger__line--top--hover");
         burgerLineTwo.classList.remove("burger__line--bottom--hover");
 
