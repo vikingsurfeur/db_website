@@ -1,6 +1,5 @@
 // Import Scripts
-import './scripts/burger.ts';
+import './scripts/header';
 
 // Import SCSS master app file
 import './styles/app.scss';
-

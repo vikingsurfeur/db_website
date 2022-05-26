@@ -6,4 +6,5 @@ liip_imagine:
         header_logo:
             quality: 100
             filters:
-                thumbnail: { size: [50, 50], mode: inset }
+                downscale:
+                    max: [50, 50]

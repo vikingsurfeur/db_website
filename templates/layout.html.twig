@@ -1,41 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}
+	{{ title }}
+{% endblock %}
 
 {% block body %}
-    <header class="container px-5 header">
-        <div class="row justify-space-between mnw-100">
-            <div class="col-xs-6">
-            <!-- TODO: Replace the logo -->
-            <a href="{{ path('app_home') }}">    
-                <img 
-			        src="{{ asset('build/images/icons/david_bouscarle_logo.png') | imagine_filter('header_logo')}}"
-                    alt="David Bouscarle logo"
-                >
-            </a>
-            </div>
-            <a class="col-xs-6 burger">
-                <span class="burger__line burger__line--top"></span>
-                <span class="burger__line burger__line--bottom"></span>
-            </a>
-        </div>
-    </header>
+	<!-- header -->
+	<header class="container px-5 header">
+		<div class="row justify-space-between mnw-100">
+			<div
+				class="col-xs-6">
+				<!-- TODO: Replace the logo -->
+				<a href="{{ path('app_home') }}">
+					<img src="{{ asset('build/images/icons/david_bouscarle_logo.png') | imagine_filter('header_logo')}}" alt="David Bouscarle logo">
+				</a>
+			</div>
+			<a class="col-xs-6 burger">
+				<span class="burger__line burger__line--top"></span>
+				<span class="burger__line burger__line--bottom"></span>
+			</a>
+		</div>
+	</header>
 
-    <nav class="menu">
+	<!-- menu -->
+	<nav class="menu">
+		<ul class="menu__list">
+			<li class="menu__item">
+				<a class="menu__link" href="">
+					Home
+				</a>
+			</li>
+			<li class="menu__item">
+				<a class="menu__link" href="">
+					Portfolio
+				</a>
+			</li>
+            <li class="menu__item">
+                <a class="menu__link" href="">
+                    About me
+                </a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="">
+                    Contact
+                </a>
+            </li>
+        </ul>
     </nav>
+{% block content %}
 
-    {% block content %}
+	{# flashes #}
+	{% block flashes %}
+		{% for label, flashes in app.session.flashbag.all %}
+			{% for flash in flashes %}
+				{# TODO: Style flash messages #}
+			{% endfor %}
+		{% endfor %}
+	{% endblock %}
+	{# end flashes #}
+{% endblock %}{% endblock %}
 
-        {# flashes #}
-        {% block flashes %}
-            {% for label, flashes in app.session.flashbag.all %}
-                {% for flash in flashes %}
-                    {# TODO: Style flash messages #}
-                {% endfor %}
-            {% endfor %}
-        {% endblock %}
-        {# end flashes #}
-        
-    {% endblock %}
-
-{% endblock %}
