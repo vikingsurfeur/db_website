@@ -5,9 +5,9 @@ const burger = document.querySelector(".burger");
 const burgerLineOne = document.querySelector(".burger__line--top");
 const burgerLineTwo = document.querySelector(".burger__line--bottom");
 const menu = document.querySelector(".menu");
-const links = document.querySelectorAll(".menu__link");
+const links = document.querySelectorAll(".menu__link") as NodeListOf<HTMLLinkElement>;
 
-// Gsap animation
+// Gsap animations
 const menuTimeline = gsap.timeline({ paused: true });
 
 menuTimeline.to(menu, {
@@ -17,15 +17,12 @@ menuTimeline.to(menu, {
     ease: "power3.inOut",
 });
 
-menuTimeline.to(
-    links,
-    {
-        duration: 1,
-        y: "-50%",
-        stagger: 0.1,
-        ease: "power3.inOut",
-    },
-    "-=0.5"
+menuTimeline.to(links, {
+    duration: 1,
+    y: "-50%",
+    stagger: 0.1,
+    ease: "power3.inOut",
+    }, "-=0.5"
 );
 
 menuTimeline.reverse();
@@ -37,8 +34,8 @@ const handleBurgerMouseEntered = () => {
         burgerLineTwo.classList.add("burger__line--bottom--hover");
 
         if (menu.classList.contains("menu--active")) {
-            burgerLineOne.classList.add("burger__line--top--hover");
-            burgerLineTwo.classList.add("burger__line--bottom--hover");
+            burgerLineOne.classList.add("burger__line--top--hover--active");
+            burgerLineTwo.classList.add("burger__line--bottom--hover--active");
             burgerLineOne.classList.remove("burger__line--top--active");
             burgerLineTwo.classList.remove("burger__line--bottom--active");
         }
@@ -65,6 +62,8 @@ const handleBurgerClicked = () => {
     if (menu.classList.contains("menu--active")) {
         burgerLineOne.classList.remove("burger__line--top--active");
         burgerLineTwo.classList.remove("burger__line--bottom--active");
+        burgerLineOne.classList.remove("burger__line--top--hover--active");
+        burgerLineTwo.classList.remove("burger__line--bottom--hover--active");
     }
 
     menu.classList.toggle("menu--active");

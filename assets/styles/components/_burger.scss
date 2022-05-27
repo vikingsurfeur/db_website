@@ -19,10 +19,13 @@
     &__line--top {
         top: 0;
 
-        @include lg {
-            &--hover {
-                transform: translateY(8.5px);
-            }
+        &--hover {
+            transform: translateY(8.5px);
+        }
+
+        &--hover--active {
+            transform: translateY(8.5px);
+            background-color: white;
         }
 
         &--active {
@@ -34,10 +37,13 @@
     &__line--bottom {
         bottom: 0;
 
-        @include lg {
-            &--hover {
-                transform: translateY(-8.5px);
-            }
+        &--hover {
+            transform: translateY(-8.5px);
+        }
+
+        &--hover--active {
+            transform: translateY(-8.5px);
+            background-color: white;
         }
 
         &--active {

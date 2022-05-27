@@ -25,14 +25,17 @@
             transform 250ms ease;
     }
 
-    &:hover {
-        color: $white;
+    @include md {
+        &:hover {
+            color: $white;
+        }
+    
+        &:hover::before {
+            transform: translate3D(0, 0, 0);
+            opacity: 1;
+        }
     }
 
-    &:hover::before {
-        transform: translate3D(0, 0, 0);
-        opacity: 1;
-    }
 }
 
 .btn-lg {
