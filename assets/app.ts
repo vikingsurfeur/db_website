@@ -1,5 +1,5 @@
 // Import Scripts
-import './scripts/header';
+import './scripts/menu';
 
 // Import SCSS master app file
 import './styles/app.scss';

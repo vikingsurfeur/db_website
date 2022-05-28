@@ -12,7 +12,10 @@
 				class="col-xs-6">
 				<!-- TODO: Replace the logo -->
 				<a href="{{ path('app_home') }}">
-					<img src="{{ asset('build/images/icons/david_bouscarle_logo.png') | imagine_filter('header_logo')}}" alt="David Bouscarle logo">
+					<img 
+						src="{{ asset('build/images/icons/david_bouscarle_logo.png') | imagine_filter('header_logo')}}" 
+						alt="David Bouscarle logo"
+					>
 				</a>
 			</div>
 			<a class="col-xs-6 burger">
@@ -24,39 +27,58 @@
 
 	<!-- menu -->
 	<nav class="menu">
-		<ul class="menu__list">
-			<li class="menu__item">
-				<a class="menu__link" href="">
-					Home
-				</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="">
-					Portfolio
-				</a>
-			</li>
-            <li class="menu__item">
-                <a class="menu__link" href="">
-                    About me
-                </a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="">
-                    Contact
-                </a>
-            </li>
-        </ul>
-    </nav>
-{% block content %}
+		<div class="menu__bg__layer">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a 
+						class="menu__link" 
+						href="" 
+						data-bg="{{ asset('build/images/placeholder/placeholder_img_landscape.jpg') }}"
+					>
+						Home
+					</a>
+				</li>
+				<li class="menu__item">
+					<a 
+						class="menu__link" 
+						href="" 
+						data-bg="{{ asset('build/images/placeholder/placeholder_img_landscape_2.jpg') }}"
+					>
+						Portfolio
+					</a>
+				</li>
+				<li class="menu__item">
+					<a 
+						class="menu__link" 
+						href="" 
+						data-bg="{{ asset('build/images/placeholder/placeholder_img_landscape.jpg') }}"
+					>
+						About me
+					</a>
+				</li>
+				<li class="menu__item">
+					<a 
+						class="menu__link" 
+						href="" 
+						data-bg="{{ asset('build/images/placeholder/placeholder_img_landscape_2.jpg') }}"
+					>
+						Contact
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	{% block content %}
 
-	{# flashes #}
-	{% block flashes %}
-		{% for label, flashes in app.session.flashbag.all %}
-			{% for flash in flashes %}
-				{# TODO: Style flash messages #}
+		{# flashes #}
+		{% block flashes %}
+			{% for label, flashes in app.session.flashbag.all %}
+				{% for flash in flashes %}
+					{# TODO: Style flash messages #}
+				{% endfor %}
 			{% endfor %}
-		{% endfor %}
+		{% endblock %}
+		{# end flashes #}
 	{% endblock %}
-	{# end flashes #}
-{% endblock %}{% endblock %}
+{% endblock %}
 

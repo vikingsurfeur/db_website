@@ -1,13 +1,14 @@
 import gsap from "gsap";
 import { isMobile } from "./utils/isMobile";
 
+const menu = document.querySelector(".menu");
+const menuBgLayer = document.querySelector(".menu__bg__layer") as HTMLElement;
+const menuLinks = document.querySelectorAll(".menu__link") as NodeListOf<HTMLLinkElement>;
 const burger = document.querySelector(".burger");
 const burgerLineOne = document.querySelector(".burger__line--top");
 const burgerLineTwo = document.querySelector(".burger__line--bottom");
-const menu = document.querySelector(".menu");
-const links = document.querySelectorAll(".menu__link") as NodeListOf<HTMLLinkElement>;
 
-// Gsap animations
+/* Gsap animations */
 const menuTimeline = gsap.timeline({ paused: true });
 
 menuTimeline.to(menu, {
@@ -17,17 +18,20 @@ menuTimeline.to(menu, {
     ease: "power3.inOut",
 });
 
-menuTimeline.to(links, {
-    duration: 1,
-    y: "-50%",
-    stagger: 0.1,
-    ease: "power3.inOut",
-    }, "-=0.5"
+menuTimeline.to(
+    menuLinks,
+    {
+        duration: 1,
+        y: "-50%",
+        stagger: 0.1,
+        ease: "power3.inOut",
+    },
+    "-=0.5"
 );
 
 menuTimeline.reverse();
 
-// Handle functions
+/* Handle burger animation's functions */
 const handleBurgerMouseEntered = () => {
     if (isMobile()) {
         burgerLineOne.classList.add("burger__line--top--hover");
@@ -69,9 +73,32 @@ const handleBurgerClicked = () => {
     menu.classList.toggle("menu--active");
 };
 
-// Add event listeners
+/* Handle hover link animation's functions */
+const handleChangeMenuImgBgLayerMouseEnter = (e: Event) => {
+    const target = e.target as HTMLLinkElement;
+    menuBgLayer.style.setProperty('--bgLayerMenuImg', `url(${target.dataset.bg})`);
+
+    target.addEventListener("transitionstart", () => {
+        console.log("transitionstart");
+    });
+
+    target.addEventListener("transitionend", () => {
+        console.log("transitionend");
+    });
+};
+
+const handleChangeMenuImgBgLayerMouseLeave = () => {
+    menuBgLayer.style.setProperty('--bgLayerMenuImg', `url(${menuLinks[0].dataset.bg})`)
+};
+
+/* Add event listeners */
 burger.addEventListener("mouseenter", handleBurgerMouseEntered);
 
 burger.addEventListener("mouseleave", handleBurgerMouseLeaved);
 
 burger.addEventListener("click", handleBurgerClicked);
+
+menuLinks.forEach((link) => {
+    link.addEventListener("mouseenter", handleChangeMenuImgBgLayerMouseEnter);
+    link.addEventListener("mouseleave", handleChangeMenuImgBgLayerMouseLeave);
+});
