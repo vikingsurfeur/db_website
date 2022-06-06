@@ -3,7 +3,9 @@ import { isMobile } from "./utils/isMobile";
 
 const menu = document.querySelector(".menu");
 const menuBgLayer = document.querySelector(".menu__bg__layer") as HTMLElement;
-const menuLinks = document.querySelectorAll(".menu__link") as NodeListOf<HTMLLinkElement>;
+const menuLinks = document.querySelectorAll(
+    ".menu__link"
+) as NodeListOf<HTMLLinkElement>;
 const burger = document.querySelector(".burger");
 const burgerLineOne = document.querySelector(".burger__line--top");
 const burgerLineTwo = document.querySelector(".burger__line--bottom");
@@ -74,21 +76,62 @@ const handleBurgerClicked = () => {
 };
 
 /* Handle hover link animation's functions */
-const handleChangeMenuImgBgLayerMouseEnter = (e: Event) => {
+// const handleChangeMenuImgBgLayerMouseEnter = async (e: Event) => {
+//     const target = e.target as HTMLLinkElement;
+
+//     menuBgLayer.style.setProperty(
+//         "--bgLayerMenuImg",
+//         `url(${target.dataset.bg})`
+//     );
+
+//     e.target.addEventListener("transitionstart", () => {
+//         menuLinks.forEach((link) => {
+//             link.removeEventListener(
+//                 "mouseover",
+//                 handleChangeMenuImgBgLayerMouseEnter
+//             );
+//         });
+//     });
+
+//     e.target.addEventListener("transitionend", () => {
+//         menuLinks.forEach((link) => {
+//             link.addEventListener(
+//                 "mouseover",
+//                 handleChangeMenuImgBgLayerMouseEnter
+//             );
+//         });
+//     });
+// };
+
+const handleChangeMenuImgBgLayerMouseEnter = async (e: Event) => {
     const target = e.target as HTMLLinkElement;
-    menuBgLayer.style.setProperty('--bgLayerMenuImg', `url(${target.dataset.bg})`);
 
-    target.addEventListener("transitionstart", () => {
-        console.log("transitionstart");
-    });
+    await removeEventListenerOnLinks(e);
 
-    target.addEventListener("transitionend", () => {
-        console.log("transitionend");
+    menuBgLayer.style.setProperty(
+        "--bgLayerMenuImg",
+        `url(${target.dataset.bg})`
+    );
+
+    await addEventListenerOnLinks(e);
+};
+
+const removeEventListenerOnLinks = async (e: Event) => {
+    menuLinks.forEach((link) => {
+        e.target.removeEventListener(
+            "transitionstart",
+            handleChangeMenuImgBgLayerMouseEnter
+        );
     });
 };
 
-const handleChangeMenuImgBgLayerMouseLeave = () => {
-    menuBgLayer.style.setProperty('--bgLayerMenuImg', `url(${menuLinks[0].dataset.bg})`)
+const addEventListenerOnLinks = async (e: Event) => {
+    menuLinks.forEach((link) => {
+        e.target.addEventListener(
+            "transitionend",
+            handleChangeMenuImgBgLayerMouseEnter
+        );
+    });
 };
 
 /* Add event listeners */
@@ -99,6 +142,5 @@ burger.addEventListener("mouseleave", handleBurgerMouseLeaved);
 burger.addEventListener("click", handleBurgerClicked);
 
 menuLinks.forEach((link) => {
-    link.addEventListener("mouseenter", handleChangeMenuImgBgLayerMouseEnter);
-    link.addEventListener("mouseleave", handleChangeMenuImgBgLayerMouseLeave);
+    link.addEventListener("mouseover", handleChangeMenuImgBgLayerMouseEnter);
 });
